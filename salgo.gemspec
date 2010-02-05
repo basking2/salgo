@@ -26,7 +26,7 @@ require 'rake'
 
 Gem::Specification.new do |spec|
     spec.name = 'salgo'
-    spec.version = '1.0.0'
+    spec.version = '1.0.1'
     spec.platform = Gem::Platform::RUBY
     spec.summary = 'simply algorithms'
     spec.email = 'basking2@rubyforge.org.com'
