@@ -103,7 +103,7 @@ module Salgo
                         return [ @nodes[i], i ]
                     end
                 end
-                
+
                 return [ @nodes[-1], @nodes.size - 1 ]
             end
             
@@ -265,13 +265,14 @@ module Salgo
         end
         
         def find_key(key)
-            
+
             node = @root
 
             candidate, candidate_idx = node.find_node_or_key_containing_key(key)
 
             while( ! candidate.nil?)
                 if ( candidate.is_a?(Key) )
+                
                     return candidate
                 end
                 
@@ -482,6 +483,7 @@ module Salgo
         # If there is already a value at the given key, it is replaced and the old value is returned.
         # Nil is returned otherwise.
         def []=(key, val)
+
             k = find_key(Key.new(key))
             
             if ( k.nil? )
@@ -513,10 +515,15 @@ module Salgo
             proc_child.call(node.nodes[index])
         end
         
-        def member?(key)
+        def has_key?(key)
             ! find_key(Key.new(key)).nil?
         end
         
+        alias member? has_key?
+        alias include? has_key?
+        alias key? has_key?
+        
+        alias store []= 
     end
 end
 
